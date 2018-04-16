@@ -10,6 +10,11 @@ public class User {
     private int id;
     private String name;
 
+    public User() {
+        super();
+        System.out.println("----user对象创建----");
+    }
+
     public int getId() {
         return id;
     }
