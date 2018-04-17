@@ -28,7 +28,8 @@ public class spring_bean {
      * scope="prototype" 在用到对象的时候才创建对象
      *
      * 3):是否延迟创建
-     *
+     *  lazy-init="false" 默认为false,不延迟加载,即在创建的时候就启动
+     *  lazy-init="true" 延迟初始化.在用到对象的时候才创建对象
      */
     @Test
     public void testIOC() throws Exception{
