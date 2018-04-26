@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+       <!--对象属性赋值-->
+        <!--1:通过构造函数-->
+        <bean id="user1" class="spring_property.user" scope="prototype">
+            <constructor-arg value="100"></constructor-arg>
+            <constructor-arg value="ty"></constructor-arg>
+        </bean>
+
+    <!--2:通过set方法构造函数
+    property:处理对象依赖关系,依赖注入
+    -->
+        <bean id="user" class="spring_property.user" scope="prototype">
+            <property name="id" value="101"/>
+            <property name="name" value="xsf"/>
+        </bean>
+
+        <!--action/service/dao-->
+    <!--dao实例-->
+    <bean id="userDao1" class="spring_property.dao.UserDao"></bean>
+    <!--service实例-->
+    <bean id="userService1" class="spring_property.service.UserService" >
+        <property name="userDao" ref="userDao1"></property>
+    </bean>
+    <!--action实例-->
+    <bean id="userAction1" class="spring_property.Action.UserAction">
+        <property name="userservice" ref="userService1"></property>
+    </bean>
+
+    <!--内部bean-->
+    <bean id="userAction" class="spring_property.Action.UserAction">
+        <property name="userservice">
+            <bean class="spring_property.service.UserService">
+                <property name="userDao">
+                    <bean class="spring_property.dao.UserDao"></bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+</beans>

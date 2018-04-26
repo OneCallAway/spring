@@ -7,10 +7,13 @@
        http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd">
+       http://www.springframework.org/schema/context/spring-context.xsd" default-autowire="byType">
+    <!--全局配置default-autowire="byName"-->
+    <!--根据名称自动装配:userAction注入的属性,会去IOC容器中自动查找-->
+    <!--自动装配-->
+    <bean id="userDao1" class="spring_auto.dao.UserDao"></bean>
 
-        <!--IOC容器的创建:要创建的所有对象都配置在这里-->
-        <bean id="user" class="spring.User" scope="singleton" lazy-init="false" init-method="init_user" destroy-method="destory_user"></bean>
+    <bean id="userService2" class="spring_auto.service.UserService"></bean>
 
-
+    <bean id="userAction" class="spring_auto.action.UserAction"></bean>
 </beans>

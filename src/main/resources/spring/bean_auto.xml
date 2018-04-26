@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd" default-autowire="byName">
+    <!--全局配置default-autowire="byName"-->
+    <!--根据名称自动装配:userAction注入的属性,会去IOC容器中自动查找
+    default-autowire="byType"根据类型查找
+    -->
+    <!--自动装配-->
+    <bean id="userDao" class="spring_auto.dao.UserDao"></bean>
+
+    <bean id="userService" class="spring_auto.service.UserService"></bean>
+
+    <bean id="userAction" class="spring_auto.action.UserAction"></bean>
+</beans>

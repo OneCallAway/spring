@@ -28,12 +28,12 @@ public class spring_IOC {
     @Test
     public void testIOC() throws Exception{
         //创建对象
-//        User user = new User();
+//        user user = new user();
 
         //spring的IOC容器创建对象
         Resource resource = new ClassPathResource("spring/applicationContext.xml");
 
-        //创建容器对象(Bean的工厂),IOC容器=工厂类+applicationContext.xml
+        //创建容器对象(Bean的工厂),IOC容器=工厂类+bean.xml
         BeanFactory beanFactory = new XmlBeanFactory(resource);
 
         //得到容器创建的对象
