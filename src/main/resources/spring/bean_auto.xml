@@ -11,6 +11,7 @@
     <!--全局配置default-autowire="byName"-->
     <!--根据名称自动装配:userAction注入的属性,会去IOC容器中自动查找
     default-autowire="byType"根据类型查找
+    如果是根据类型自动装配,必须确保IOC容器中只有一个该类型的对象
     -->
     <!--自动装配-->
     <bean id="userDao" class="spring_auto.dao.UserDao"></bean>
